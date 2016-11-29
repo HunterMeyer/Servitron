@@ -9,7 +9,6 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'awesome_print'
 gem 'json'
-gem 'paperclip'
 gem 'aws-sdk'
 gem 'capybara',    require: false
 gem 'poltergeist', require: false
