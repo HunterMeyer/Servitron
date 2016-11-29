@@ -11,6 +11,9 @@ gem 'awesome_print'
 gem 'json'
 gem 'paperclip'
 gem 'aws-sdk'
+gem 'capybara',    require: false
+gem 'poltergeist', require: false
+gem 'phantomjs',   require: 'phantomjs/poltergeist'
 
 group :production do
   gem 'rails_12factor'
