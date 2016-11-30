@@ -9,8 +9,13 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'awesome_print'
 gem 'json'
-gem 'paperclip'
 gem 'aws-sdk'
+gem 'capybara',    require: false
+gem 'poltergeist', require: false
+gem 'phantomjs',   require: 'phantomjs/poltergeist'
+gem 'delayed_job_active_record'
+gem 'delayed_job_web'
+gem 'httparty'
 
 group :production do
   gem 'rails_12factor'
