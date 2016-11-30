@@ -15,6 +15,7 @@ gem 'poltergeist', require: false
 gem 'phantomjs',   require: 'phantomjs/poltergeist'
 gem 'delayed_job_active_record'
 gem 'delayed_job_web'
+gem 'httparty'
 
 group :production do
   gem 'rails_12factor'
