@@ -21,7 +21,7 @@ class ScreenshotService
   private
 
   def save_screenshot
-    file = format_file_name(options[:file_name] || "#{session.title}_#{Time.now.to_s(:number)}")
+    file = format_file_name(options['file_name'] || "#{session.title}_#{Time.now.to_s(:number)}")
     path = "#{Rails.root}/tmp/screenshots/#{file}"
     session.save_screenshot(path, options)
   end
