@@ -16,6 +16,10 @@ class ScreenshotJob < Struct.new(:instance_id)
     end
   end
 
+  def queue_name
+    'Screenshots'
+  end
+
   # def error(_job)
   # end
 
