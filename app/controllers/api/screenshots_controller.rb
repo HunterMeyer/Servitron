@@ -1,5 +1,14 @@
 module Api
   class ScreenshotsController < ApiController
+    def show
+      @screenshot = Screenshot.find_by_id(params[:id])
+      if @screenshot
+        render json: @screenshot.attributes.slice('id', 'website', 'file_url')
+      else
+        render json: { message: 'Not Found' }, status: 404
+      end
+    end
+
     def create
       @screenshot = Screenshot.create(screenshot_params)
       if @screenshot.save
