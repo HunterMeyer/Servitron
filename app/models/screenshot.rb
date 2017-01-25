@@ -1,4 +1,5 @@
 class Screenshot < ActiveRecord::Base
+  statusable :active, :erased
   uploadable path: :screenshots, acl: :public_read, content_type: 'image/png'
 
   def enqueue
