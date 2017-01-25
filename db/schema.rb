@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161129231857) do
+ActiveRecord::Schema.define(version: 20170125165254) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,5 +49,17 @@ ActiveRecord::Schema.define(version: 20161129231857) do
 
   add_index "screenshots", ["status"], name: "screenshots_status", using: :btree
   add_index "screenshots", ["website"], name: "screenshots_website", using: :btree
+
+  create_table "users", force: :cascade do |t|
+    t.text    "first_name"
+    t.text    "last_name"
+    t.text    "email"
+    t.text    "api_key"
+    t.text    "status",      default: "Active"
+    t.boolean "api_enabled", default: false
+  end
+
+  add_index "users", ["api_key"], name: "index_users_on_api_key", using: :btree
+  add_index "users", ["status"], name: "index_users_on_status", using: :btree
 
 end
