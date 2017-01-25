@@ -10,9 +10,11 @@ module Api
     end
 
     def create
-      @screenshot = Screenshot.create(screenshot_params)
+      @screenshot = Screenshot.find_or_create(screenshot_params)
       if @screenshot.save
-        if params[:instant] == 'true'
+        if !@screenshot.new_record?
+          render json: { file_url: @screenshot.file_url }
+        elsif params[:instant] == 'true'
           @screenshot.process!
           render json: { file_url: @screenshot.file_url }
         else
