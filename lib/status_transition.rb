@@ -6,7 +6,7 @@ module StatusTransition
   end
 
   def self.settings_for(*statuses)
-    return settings unless statuses
+    return settings unless statuses.present?
     settings.select { |status, _| statuses.include? status }
   end
 
