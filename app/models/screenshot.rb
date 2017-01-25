@@ -1,5 +1,5 @@
 class Screenshot < ActiveRecord::Base
-  uploadable path: :screenshots, acl: :public_read
+  uploadable path: :screenshots, acl: :public_read, content_type: 'image/png'
 
   def enqueue
     Delayed::Job.enqueue(ScreenshotJob.new(id))
@@ -11,6 +11,6 @@ class Screenshot < ActiveRecord::Base
   end
 
   def to_params
-    options.merge(file_url: file_url).to_query
+    { website: website, file_url: file_url }.to_param
   end
 end
