@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20161129231857) do
     t.text     "website"
     t.text     "file_url"
     t.text     "callback_url"
-    t.text     "status"
+    t.text     "status",       default: "Active"
     t.json     "options",      default: {}
     t.datetime "created_at"
     t.datetime "updated_at"

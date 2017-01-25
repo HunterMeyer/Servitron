@@ -4,7 +4,7 @@ class CreateScreenshots < ActiveRecord::Migration
       t.text :website
       t.text :file_url
       t.text :callback_url
-      t.text :status
+      t.text :status, default: 'Active'
       t.json :options, default: {}
       t.timestamps
     end
