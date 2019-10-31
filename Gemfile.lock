@@ -981,6 +981,7 @@ DEPENDENCIES
   jquery-rails
   json
   newrelic_rpm
+  nokogiri
   pg (= 0.20)
   phantomjs
   poltergeist

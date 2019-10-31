@@ -7,8 +7,17 @@ class Screenshot < ActiveRecord::Base
   end
 
   def process!
+    url = image_meta_tag || screenshot
+    update!(file_url: url)
+  end
+
+  def image_meta_tag
+    MetaTagService.new(website).find('og:image')
+  end
+
+  def screenshot
     capture = ScreenshotService.new(website, options).capture
-    update!(file_url: upload(capture).public_url.to_s)
+    upload(capture).public_url.to_s
   end
 
   def to_params

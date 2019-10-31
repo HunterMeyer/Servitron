@@ -10,6 +10,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'awesome_print'
 gem 'json'
 gem 'aws-sdk'
+gem 'nokogiri'
 gem 'capybara',    require: false
 gem 'poltergeist', require: false
 gem 'phantomjs',   require: 'phantomjs/poltergeist'
