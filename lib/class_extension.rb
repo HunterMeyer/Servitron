@@ -1,8 +1,9 @@
 class Class
   def uploadable(options = {})
     define_method :upload do |file|
-      obj = S3_BUCKET.objects["#{Rails.env}/#{options.delete(:path)}/#{File.basename(file)}"]
-      obj.write({ file: file }.merge(options))
+      obj = S3_BUCKET.object("#{Rails.env}/#{options[:path]}/#{File.basename(file)}")
+      obj.put({ body: file }.merge(options.except(:path)))
+      obj
     end
   end
 

@@ -1,6 +1,6 @@
 class Screenshot < ActiveRecord::Base
   statusable :active, :erased
-  uploadable path: :screenshots, acl: :public_read, content_type: 'image/png'
+  uploadable path: :screenshots, acl: 'public-read', content_type: 'image/png'
 
   def enqueue
     Delayed::Job.enqueue(ScreenshotJob.new(id))
